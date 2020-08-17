@@ -2,7 +2,7 @@
 	let unreadCount;
 
 	function getUnreadCount() {
-		const inboxNavigationElement = document.querySelector('div[role=navigation] [title*="Inbox"]');
+		const inboxNavigationElement = document.querySelector('div[role=navigation] [aria-label*="Inbox"]');
 		if (!inboxNavigationElement) {
 			return 0;
 		}
