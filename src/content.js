@@ -16,10 +16,10 @@
 		return count;
 	}
 
-	function getAtomFeed() {
+	function getAtomFeed(accountId) {
 		return new Promise((resolve) => {
 			const x = new XMLHttpRequest();
-			x.open('GET', 'https://mail.google.com/mail/feed/atom?_=' + new Date().getTime(), true);
+			x.open('GET', 'https://mail.google.com/mail/u/'+accountId+'/feed/atom?_=' + new Date().getTime(), true);
 			x.setRequestHeader('Cache-Control', 'no-cache');
 			x.onreadystatechange = function () {
 				if (x.readyState == 4 && x.status == 200) {
@@ -30,8 +30,22 @@
 		});
 	}
 
+	async function getLocalStorageValue(key) {
+    return new Promise((resolve, reject) => {
+        try {
+            chrome.storage.sync.get(key, function (value) {
+                resolve(value);
+            })
+        }
+        catch (ex) {
+            reject(ex);
+        }
+    });
+}
+
 	async function updateBadgeIcon() {
-		const feed = await getAtomFeed();
+		const options = await getLocalStorageValue("accountId");
+		const feed = await getAtomFeed(options["accountId"]);
 		const newUnreadCount = getUnreadCount(feed);
 		if (newUnreadCount < 0) {
 			return;
