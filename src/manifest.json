@@ -1,6 +1,6 @@
 {
   "name": "Gmail app badge notification",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "manifest_version": 3,
   "description": "Show badge notifications in the taskbar when using Gmail as an app",
   "homepage_url": "https://github.com/aberonni/gmail-app-badge-notification",
