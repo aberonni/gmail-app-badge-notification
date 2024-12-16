@@ -1,5 +1,6 @@
 (() => {
     let unreadCount;
+    let
 
     function getUnreadCount(doc) {
         if (!doc) return -1;
@@ -25,19 +26,20 @@
     }
 
     async function updateBadgeIcon() {
-        chrome.storage.sync.get({ label: '' }, async ({ label }) => {
-            const feed = await getAtomFeed(label);
-            const newUnreadCount = getUnreadCount(feed);
-            if (newUnreadCount < 0) return;
-
-            if (newUnreadCount !== unreadCount) {
-                unreadCount = newUnreadCount;
-                navigator.setAppBadge(unreadCount); 
-            }
-        });
     }
+    
+    chrome.storage.sync.get({ label: '', pollingInterval: 1000 }, async ({ label, pollingInterval }) => {
+        const feed = await getAtomFeed(label);
+        const newUnreadCount = getUnreadCount(feed);
+        if (newUnreadCount < 0) return;
 
-    setInterval(updateBadgeIcon, 5000);
+        if (newUnreadCount !== unreadCount) {
+            unreadCount = newUnreadCount;
+            navigator.setAppBadge(unreadCount); 
+        }
 
-    updateBadgeIcon();
+        setInterval(updateBadgeIcon, 1000);
+        updateBadgeIcon();
+    });
+
 })();
