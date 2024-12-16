@@ -14,5 +14,13 @@
       "matches": ["*://*.mail.google.com/mail/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "contextMenus", "alarms"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
 }

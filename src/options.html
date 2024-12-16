@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Settings - Gmail Badge</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <style>
+        body {
+            padding: 2rem;
+        }
+        .alert {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gmail Badge Settings</h1>
+        <form id="settings-form">
+            <div class="form-group">
+                <label for="label">Gmail Label</label>
+                <input type="text" class="form-control" id="label" placeholder="Enter Gmail label (e.g., Important)">
+                <small class="form-text text-muted">Leave empty to track all unread emails.</small> <!--  For "Important", it will automatically be converted to "^iim". -->
+            </div>
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+        </form>
+        <div class="alert alert-success fade" id="status" role="alert">
+            Settings saved!
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
