@@ -37,7 +37,7 @@
         });
     }
 
-    setInterval(updateBadgeIcon, 5000);
+    setInterval(updateBadgeIcon, 1000);
 
     updateBadgeIcon();
 })();
