@@ -18,15 +18,15 @@ By default it will track all emails on the inbox. You can filter based on custom
 
 When you right click, you get the option to add the label
 
-![Screenshot_option](confconfigure_email_option.png)
+![Screenshot_option](configure_email_option.png)
 
 or you can click on the extension and click "configure"
 
-![Screenshot_exension](confconfigure_email_extension.png)
+![Screenshot_exension](configure_email_extension.png)
 
 When you click it, a new tab opens on the browser to add the label. Then you can type the label you want to see notifications for and then you can close that tab.
 
-![Screenshot_save](confconfigure_email_save.png)
+![Screenshot_save](configure_email_save.png)
 
 If you want to go back to track everything again, just remove the label and click save.
 
