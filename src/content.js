@@ -3,10 +3,8 @@
 
     function getUnreadCount(doc) {
         if (!doc) return -1;
-        const fullcountElement = doc.querySelector('fullcount');
-        if (!fullcountElement) return -1;
-        const count = parseInt(fullcountElement.textContent);
-        return isNaN(count) ? -1 : count;
+        const entries = doc.querySelectorAll('entry');
+        return entries.length;
     }
 
     // Fetch Gmail feed and parse unread count
