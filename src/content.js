@@ -37,7 +37,14 @@
         });
     }
 
-    setInterval(updateBadgeIcon, 1000);
+    // Initialize polling with configurable interval
+    async function initPolling() {
+        // Get the polling interval from storage (default: 1000ms = 1 second)
+        chrome.storage.sync.get({ pollingInterval: 1000 }, ({ pollingInterval }) => {
+            setInterval(updateBadgeIcon, pollingInterval);
+            updateBadgeIcon(); // Initial update
+        });
+    }
 
-    updateBadgeIcon();
+    initPolling();
 })();
